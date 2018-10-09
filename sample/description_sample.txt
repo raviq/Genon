@@ -1,0 +1,11 @@
+
+ Utility hypergraph description:
+
+   Number of issues                n       =  2 
+   Number of constraints           m       =  5 
+   Constraint-Issue distribution   pi      =  pl   
+				   alpha   =  0.343020 
+   Constraint-Weight distribution  w       =  random    
+                   Competitiveness Mode    =  random 
+                Max Utility per Constraint =  100 
+                               #iter PF    =  100 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<utility_space type="nonlinear">
+  <objective description="" etype="objective" index="0" name="root" type="objective">
+       <issue etype="integer" index="1"  name="i2" type="integer" vtype="integer" lowerbound="0" upperbound="9"/>
+       <issue etype="integer" index="2"  name="i1" type="integer" vtype="integer" lowerbound="0" upperbound="9"/>
+    <utility maxutility="194">
+     <ufun type="PlainUfun" weight="1" aggregation="sum">
+	  <hyperRectangle utility="21">
+	      <EXCLUDES index="1"  min="0"  max="6"/>
+	      <EXCLUDES index="2"  min="4"  max="9"/>
+	  </hyperRectangle>
+	  <hyperRectangle utility="85">
+	      <EXCLUDES index="1"  min="3"  max="5"/>
+	      <EXCLUDES index="2"  min="5"  max="7"/>
+	  </hyperRectangle>
+	  <hyperRectangle utility="12">
+	      <EXCLUDES index="1"  min="5"  max="9"/>
+	      <EXCLUDES index="2"  min="5"  max="8"/>
+	  </hyperRectangle>
+	  <hyperRectangle utility="26">
+	      <INCLUDES index="1"  min="1"  max="3"/>
+	      <INCLUDES index="2"  min="0"  max="5"/>
+	  </hyperRectangle>
+	  <hyperRectangle utility="50">
+	      <INCLUDES index="1"  min="0"  max="7"/>
+	      <INCLUDES index="2"  min="3"  max="8"/>
+	  </hyperRectangle>
+     </ufun>
+    </utility>
+  </objective>
+</utility_space>
