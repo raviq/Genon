@@ -17,7 +17,7 @@
   <a  name="desc"></a>
   ## Description
 
-Genon is a generator of nonlinear preferences for intelligent artificial agents. Nonlinear preferences are matheamtically formulated using nonlinear [utility spaces](https://en.wikipedia.org/wiki/Utility#Utility_function) and can be defined using multidimensional constraints.
+Genon is a generator of nonlinear preferences for intelligent artificial agents. Nonlinear preferences are mathematically formulated using nonlinear [utility spaces](https://en.wikipedia.org/wiki/Utility#Utility_function) and can be defined using multidimensional constraints.
 
 A utility space is characterised by 
 
