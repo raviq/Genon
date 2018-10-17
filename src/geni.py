@@ -1,13 +1,10 @@
-##====================================================================================================
-## overlap interval genration
-##====================================================================================================
+# overlap interval generation
 
 import os
 import time
 import random
 import matplotlib.pyplot as plt
 from interval import interval
-
 
 # Intervals complementary/sampling
 
@@ -27,7 +24,7 @@ def sample_interval_from_interval(i):
 	random_component = ci_l[random.randint(0, len(ci_l)-1 )]
 
 	j = 0
-	for k in xrange(len(ci_l)):
+	for k in range(len(ci_l)):
 		if ci_l[k][0][0] == ci_l[k][0][1]:
 			j += 1
 	if j == len(ci_l):
@@ -163,7 +160,7 @@ def overlap(interv_src, delta = 'zerosum'):
 	if delta == 'random':
 		return sample_interval_from_interval(interval[0, 9]) # random
 	else:
-		print 'arg error'
+		print ('arg error')
 		exit()
 
 #__________________________________________________________________________________________
@@ -193,7 +190,7 @@ def example_of_J_plot():
 	src_interval = random_interval()
 	dest_interval = overlap(src_interval, delta = d)
 	plot_intervals(src_interval, dest_interval, d)
-	print '\ndone.\n'
+	print ('\ndone.\n')
 
 	exit()
 
