@@ -79,7 +79,6 @@ def leni(i):
 	if i == interval():  	return 0
 	if i[0][1] == i[0][0]:	return 1
 	return i[0][1]-i[0][0]+1
-
 #__________________________________________________________________________________________
 def plot_intervals(src_interval, dest_interval, d):
 	fig = plt.figure(1, figsize=(8, 8))
@@ -105,7 +104,6 @@ def plot_intervals(src_interval, dest_interval, d):
 		plt.hlines(where, intersa, intersb, 'g', lw=5, label='$P_1 \cap P_2=[%d, %d],\ l=%d$' % (intersa, intersb, leni(intersection) ))
 		plt.vlines(intersa, where-0.01, where+0.01, 'g', lw=2)
 		plt.vlines(intersb, where-0.01, where+0.01, 'g', lw=2)
-
 
 	union = src_interval | dest_interval
 	where += 0.1
@@ -200,7 +198,6 @@ def example_of_J_plot():
 if __name__ == '__main__':
 
 	example_of_J_plot()
-
 
 
 # End
