@@ -25,17 +25,12 @@ import math
 import time
 import random
 import matplotlib.pyplot as plt
-from ScenFactory import ScenFactory as sf
-from ScenFactory import generate_domain
+from src.ScenFactory import ScenFactory as sf
+from src.ScenFactory import generate_domain
 from interval import interval
 from xml.parsers.expat import ExpatError
 from xml.dom import minidom
-from xml.dom.minidom import parse
-import collections
-from collections import defaultdict, OrderedDict
 import numpy as np
-
-from scen import Scenario
 
 """ recursively loads a component node, prints the content. Returns if iptr """
 def recompoload(compo, verbose):	
@@ -672,7 +667,7 @@ if __name__== "__main__":
 		#	print '  b%d   %f    %f  ' % (k+1, U1[k], U2[k])
 			
 		if verbose: print '____________________________________________________'			
-		from pareto import get_pareto
+		from src.pareto import get_pareto
 		
 		if False:
 			pf_ = 'pareto_%d-%d-%s' % (N, M, pType)

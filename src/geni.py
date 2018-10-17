@@ -3,15 +3,11 @@
 ##====================================================================================================
 
 import os
-import sys
-import math
 import time
 import random
 import matplotlib.pyplot as plt
 from interval import interval
-import collections
-from collections import defaultdict, OrderedDict
-from scen import Scenario
+
 
 # Intervals complementary/sampling
 

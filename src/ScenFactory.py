@@ -3,20 +3,11 @@
 ## Random Scenario Factory, with modes.
 ##===========================================================================================
 
-import random, sys
-from random import randint
-import numpy as np
+import random
 from interval import interval
 
-import os
-from xml.parsers.expat import ExpatError
-from xml.dom import minidom
-from xml.dom.minidom import parse
-import collections
-from collections import defaultdict, OrderedDict
-
-from scen import Scenario
-from geni import generate_interval, geta, getb
+from src.scen import Scenario
+from src.geni import generate_interval, geta, getb
 
 def ScenFactory(N, M, P, pType, ProfileID, Weight, MaxUtilityPerConstraint,  CompleteWeight, mode, wType, w_alpha, IssueBounds, path):
 
