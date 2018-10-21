@@ -86,7 +86,7 @@ Theoretical details are found in [citation](#Citation).
 python2.7 src/genon.py 2 5 pl random random 100 2 5 100 sample sample/
 ```
 
-The output is stored in `/absolute-path-to-/sample/` and contains:
+The output is stored in `sample/` and contains:
 
 File | Description
 ------------ | -------------
