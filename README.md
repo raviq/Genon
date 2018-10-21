@@ -31,7 +31,7 @@ Issues are the "things" that the agent is reasoning about.
 Constraints are the "glue" that the agent is using to structure the issues according to his preferences. We distinguish three types of preferences, modelled using cubic, bell, and conic constraints:
 
 <p align="center">
-	<img src="https://github.com/raviq/Genon/blob/master/images/ck.png" width="500">
+	<img src="https://github.com/raviq/Genon/blob/master/images.hid/ck.png" width="500">
 </p>
 
 The distribution *π* specifies the number of issues involved in one particular constraint. Genon supports three types of distributions:
@@ -48,7 +48,7 @@ Note that a utility space corresponds to a utility hypergraph where nodes repres
 
 
 <p align="center">
-	<img src="https://github.com/raviq/Genon/blob/master/images/utspace.png" width="500">
+	<img src="https://github.com/raviq/Genon/blob/master/images.hid/utspace.png" width="500">
 </p>
 
 
