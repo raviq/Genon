@@ -17,7 +17,7 @@
   <a  name="desc"></a>
   ## Description
 
-Genon is a generator of nonlinear preferences for intelligent artificial agents. Nonlinear preferences are mathematically formulated using nonlinear [utility spaces](https://en.wikipedia.org/wiki/Utility#Utility_function) and can be defined using multidimensional constraints.
+Genon is a generator of nonlinear preferences for intelligent artificial agents. Nonlinear preferences are mathematically formulated using nonlinear [utility spaces](https://en.wikipedia.org/wiki/Utility#Utility_function). In Genon, a nonlinear utility space is defined using multidimensional constraints.
 
 A utility space is characterised by 
 
@@ -66,7 +66,7 @@ Theoretical details are found in [citation](#Citation).
   <a  name="usage1"></a>
 ### Usage
 
-	python2.7 genon.py 
+	python2.7  src/genon.py 
 		   NumberofIssues (n)
 		   NumberofConstraints (m)
 		   ConstraintIssueDistribution (pi) in [complete | random | pl] 
@@ -114,7 +114,7 @@ Each constraint from agent *1*'s utility space is used to generate a new constra
   <a  name="usage2"></a>
 ### Usage
 
-	python2.7 genon2.py 
+	python2.7  src/genon2.py 
 		   NumberofIssues 
 		   NumberofConstraints 
 		   ConstraintIssueDistribution (Pi) in [complete | random | pl] 
@@ -147,7 +147,7 @@ profile-2.xml | Utility space of agent *2*
 
   <a  name="compat"></a>
 ### Compatibility
-The generated profiles are compatible with [Genius](http://ii.tudelft.nl/genius/) and were used for the bilateral automated negotiations  of the [ANAC2014](http://www.itolab.nitech.ac.jp/ANAC2014/) competition:
+The generated profiles are compatible with [Genius](http://ii.tudelft.nl/genius/) and were used for the bilateral automated negotiations  of the [ANAC2014](http://www.itolab.nitech.ac.jp/ANAC2014/) competition.
 
 > Aydogan, Reyhan, et al. "A baseline for non-linear bilateral negotiations: the full results of the agents competing in ANAC 2014." (2016): 1-25.
 
