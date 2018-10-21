@@ -16,11 +16,10 @@ from interval import interval
 from xml.parsers.expat import ExpatError
 from xml.dom import minidom
 
-from src.ScenFactory import ScenFactory as sf
-from src.ScenFactory import generate_domain
+from ScenFactory import ScenFactory as sf
+from ScenFactory import generate_domain
 
-
-""" recursively loads a component node, prints the content. Returns if iptr """
+# Rcursively loads a component node, prints the content. Returns if iptr
 def recompoload(compo, verbose):	
     if verbose:
         print 'Component', compo.getAttribute('name'), '(', compo.getAttribute('description'),')'
@@ -30,10 +29,9 @@ def recompoload(compo, verbose):
             if child.tagName == 'iptr':
                 if child.nodeType==child.ELEMENT_NODE:
                         if verbose:
-                            print ' iptr =', child.firstChild.nodeValue
+                            print (' iptr =', child.firstChild.nodeValue)
             else: # component
                 recompoload(child, verbose)
-
 # Entropy
 def H(p):
     s = 0.
@@ -44,9 +42,10 @@ def H(p):
             s -= _ * math.log(_)
     return s
 
-
+# ----------------------------------------
 # Loads the scenario file
 # Calculation of contract utility
+# ----------------------------------------
 
 class Scenario(object):
 	def __init__(self, fname = None, fpath = None,  verbose = False):
@@ -175,8 +174,9 @@ class Scenario(object):
 		
 		return u
 
-
+# ----------------------------------------
 # Intervals complementary/sampling
+# ----------------------------------------
 
 def complementary(interv):
 	a, b = interv[0]
@@ -231,8 +231,6 @@ def random_interval():
 		b = random.randint(0,9)
 	return interval[a, b]
 
-	
-#====================================================================================================
 
 def poisseq(n, lambd):
     tmpdegs = np.zeros(n)
@@ -248,7 +246,6 @@ def leni(i):
 	if i[0][1] == i[0][0]:	return 1
 	return i[0][1]-i[0][0]+1
 
-#__________________________________________________________________________________________
 def plot_intervals(src_interval, dest_interval, d):
 	fig = plt.figure(1, figsize=(8, 8))
 	ia = geta(src_interval)
@@ -307,13 +304,13 @@ def plot_intervals(src_interval, dest_interval, d):
 	fig.savefig(fname)
 	plt.close()
 
-#__________________________________________________________________________________________
-'''
-	competitiveness and overlap	
-	0 : no overlap (zero-sum)
-		... Jaccard index
-	1 : complete overlap same, or contained
-'''
+
+# ----------------------------------------
+#	competitiveness and overlap
+#	0 : no overlap (zero-sum)
+#		... Jaccard index
+#	1 : complete overlap same, or contained
+# ----------------------------------------
 
 def overlap(interv_src, delta = 'zerosum'):
 	if delta == 'zerosum':
@@ -337,13 +334,10 @@ def example_of_J_plot():
 
 	exit()
 
-'''
-Final function to generate interval from src_interval given a mode.
-	mode :	within
-			zerosum
-			random
-'''
-
+# ---------------------------------------------------------------------------
+# Final function to generate interval from src_interval given a mode.
+# mode :	within, zerosum and random
+# ---------------------------------------------------------------------------
 
 def generate_interval( src_interval, mode='within' ):
 	if mode ==  'zerosum':	
@@ -353,8 +347,6 @@ def generate_interval( src_interval, mode='within' ):
 
 	return overlap(src_interval, delta = mode)	
 
-
-#__________________________________________________________________________________________
 
 def circle_around_clique(clique, coords):
 	dist = temp_dist = 0
@@ -374,8 +366,6 @@ def circle_around_clique(clique, coords):
 	# return color of the circle, to use it as the color for vertices of the cliques
 	return color
 
-#__________________________________________________________________________________________
-
 def main():
 
 	generate_constraints_description = True
@@ -383,20 +373,13 @@ def main():
 	view_labels = False
 	view_plot = False
 	
-	if intervals_demo: # A test for intervals manipualtion:
-
+	if intervals_demo: # A test for intervals manipualation
 		src_interval = random_interval()
-
 		mode_ = 'within'
-
 		dest_interval = generate_interval( src_interval, mode=mode_)
-	
 		J = leni(src_interval & dest_interval) / (leni(src_interval | dest_interval) * 1.)
-		
-		print J
-			
+		print (J)
 		plot_intervals(src_interval, dest_interval, mode_)
-
 		exit()
 
 
@@ -511,16 +494,12 @@ def main():
 		else:
 			domain_='S-1NIKFRT-1-domain'
 		
-		
 		domain_filename = '%s%s.xml' % (ProfileDirectory, domain_)
 		domain_file = open(domain_filename, "w")
-
-
 		dom = generate_domain(N)
-		
 		domain_file.write(dom)
 		domain_file.close()
-		print 'Domain (%s) saved.' % domain_filename
+		print ('Domain (%s) saved.' % domain_filename)
 			
 		# Profiles		
 		for profile_id in [1]:
@@ -545,15 +524,14 @@ def main():
 			profile_file = open(profile_filename, "w")
 			profile_file.write(res[0])
 			profile_file.close()
-			print 'profile (%s) saved.' % profile_filename
+			print ('profile (%s) saved.' % profile_filename)
 			
-			###
 			## Plot Hypergraph
-			###
 			## {{{
-			print '\n\n'
+			print ('\n\n')
 			
 			profile1 = '%s%s.xml' % (ProfileDirectory, ProfileName)
+			profile1 = os.path.abspath(profile1) # file with absolute path.
 			space1 = Scenario(profile1)	
 			constraints = space1.get_constraints()
 			i_names = space1.get_issue_names()
@@ -571,10 +549,6 @@ def main():
 			            G.add_edge(k, i_names[i_-1])
 			##### <<
 			# Plot G
-			#
-			# TODO use https://github.com/ezod/hypergraph ?
-			#
-			########
 			fig = plt.figure(figsize = (10, 10))
 			pos = nx.spring_layout(G)
 			
@@ -590,11 +564,9 @@ def main():
 			        if node not in constraints.keys():
 			            P_.remove_node(node)
 
-			    print P_.nodes()
-			    
 			    cliques = [clique for clique in nx.find_cliques(G)]# if len(clique) > 2]
 			    for clique in cliques:
-			        print 'clique to appear: ', clique
+			        print ('clique to appear: ', clique)
 			        nx.draw_networkx_nodes(G, pos=pos, nodelist=clique, node_color=circle_around_clique(clique, pos))
 			else:
 			    
@@ -624,7 +596,6 @@ def main():
 			    plt.show()
 	
 			##### >>
-			
 			
 			## }}}
 			
@@ -687,7 +658,6 @@ def main():
 		## loop over random contracts and calculating utility
 
 		start_t = time.time()
-		
 		cache = dict()
 		
 		for k in xrange(number_iterations):
@@ -702,16 +672,12 @@ def main():
 				cache[contract_string] = 1
 			u1 = space1.get_utility(x)
 			
-			print x, '   --> ', u1
+			print ('    %s -->  %s' % (x, u1) )
 			
-			
-		print time.time() - start_t
-
-		print 'Max utility = ', space1.get_maxutility() * 1.
-
+		print (time.time() - start_t)
+		print ('Max utility = %s' % (space1.get_maxutility() * 1.))
 		ncc = nx.number_connected_components(G)
-		
-		print 'ncc = ', ncc
+		print ('ncc = %d' % ncc)
 		
 		return ncc
 		
@@ -788,9 +754,6 @@ def main():
 			U1.append(PF[k][0])
 			U2.append(PF[k][1])
 		
-		#for k in xrange(number_of_checked_bids):
-		#	print '  b%d   %f    %f  ' % (k+1, U1[k], U2[k])
-			
 		if verbose: print '____________________________________________________'			
 		from src.pareto import get_pareto
 		
@@ -801,11 +764,10 @@ def main():
 		pf_filename = '%s%s.xml' % (ProfileDirectory, pf_)
 
 		get_pareto(U1, U2, pf_filename, ProfileDirectory)
-
 		
 		# Generate the domain template (issues list)	
 
-		print '\n'
+		print ('\n')
 	else:
 		print 'usage: ', usage
 

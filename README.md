@@ -83,7 +83,7 @@ Theoretical details are found in [citation](#Citation).
 ### Example
 
 ```
-python2.7 genon.py 2 5 pl random random 100 2 5 100 sample /absolute-path-to-/sample/
+python2.7 src/genon.py 2 5 pl random random 100 2 5 100 sample sample/
 ```
 
 The output is stored in `/absolute-path-to-/sample/` and contains:
@@ -128,7 +128,7 @@ Each constraint from agent *1*'s utility space is used to generate a new constra
   <a  name="Example2"></a>
 ### Example
 ```
-	python2.7 genon2.py 2 5 random random random 100 2 5 100
+python2.7 src/genon2.py 2 5 random random random 100 2 5 100
 ```
 
 The output will be stored in `scenarios/2-5-random-random-random/` and contains:

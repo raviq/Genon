@@ -6,8 +6,8 @@
 import random
 from interval import interval
 
-from src.scen import Scenario
-from src.geni import generate_interval, geta, getb
+from scen import Scenario
+from geni import generate_interval, geta, getb
 
 def ScenFactory(N, M, P, pType, ProfileID, Weight, MaxUtilityPerConstraint,  CompleteWeight, mode, wType, w_alpha, IssueBounds, path):
 

@@ -3,50 +3,35 @@
 ## @author: Rafik HADFI, <rafik.hadfi@gmail.com>
 ############################################################
 
-'''
-Pareto Front:
-
-how to compute?
-		
-		
-Competitiveness
-			0..1 : specified by 
-					1 : high competitiveness, no overlap
-					0 : low competitiveness, overlap
-			-1 : specified by the function (more general)
-			use figure 6, in [http://cci.mit.edu/klein/papers/dss-negowiki.pdf]
-			find a unified way to model the competitiveness
-'''
-		
-		
 import os
 import sys
 import math
 import time
 import random
 import matplotlib.pyplot as plt
-from src.ScenFactory import ScenFactory as sf
-from src.ScenFactory import generate_domain
 from interval import interval
 from xml.parsers.expat import ExpatError
 from xml.dom import minidom
 import numpy as np
 
-""" recursively loads a component node, prints the content. Returns if iptr """
+from ScenFactory import ScenFactory as sf
+from ScenFactory import generate_domain
+from pareto import get_pareto
+
+
+# recursively loads a component node, prints the content. Returns if iptr
 def recompoload(compo, verbose):	
     if verbose:
-        print 'Component', compo.getAttribute('name'), '(', compo.getAttribute('description'),')'
+        print ('Component', compo.getAttribute('name'), '(', compo.getAttribute('description'),')')
     
     for child in compo.childNodes:
         if (child.nodeType != child.TEXT_NODE):
             if child.tagName == 'iptr':
                 if child.nodeType==child.ELEMENT_NODE:
                         if verbose:
-                            print ' iptr =', child.firstChild.nodeValue
+                            print (' iptr =', child.firstChild.nodeValue)
             else: # component
                 recompoload(child, verbose)
-
-#===================================================================================================================
 
 def H(p):
     s = 0.
@@ -57,7 +42,6 @@ def H(p):
             s -= _ * math.log(_)
     return s
     
-#===================================================================================================================
 class Scenario(object):
 	def __init__(self, fname = None, fpath = None,  verbose = False):
 		
@@ -132,9 +116,7 @@ class Scenario(object):
 	def get_maxutility(self):
 		return self.maxutility
 		
-	'''
-	x is the contract, indexed by index, not by the issue name ! the mapping needs to be established using self.issues
-	'''
+	# x is the contract, indexed by index, not by the issue name ! the mapping needs to be established using self.issues
 	def get_utility(self, x, verbose=False):
 		u = 0
 		for c in self.cons:
@@ -161,12 +143,10 @@ class Scenario(object):
 						
 						exclusion.append( b )
 							
-
 					if verbose: print '\t   ', interv, memebership, issue_value, ' = ', b
 					
 				else:
 					utility = int(self.cons[c][i])
-
 
 			if verbose:
 				print '\t\t\t\t\t\t exclusion = ', exclusion
@@ -625,11 +605,9 @@ if __name__== "__main__":
 
 		# update with number of checked bids		
 		number_of_checked_bids = len(PF)
-					
-		
+							
 		print ' Number of checked bids = %d' % number_of_checked_bids
 		print '                  niter = %d' % niter
-
 
 		maxu1 = sc1.get_maxutility() * 1.
 		maxu2 = sc2.get_maxutility() * 1.
@@ -667,7 +645,6 @@ if __name__== "__main__":
 		#	print '  b%d   %f    %f  ' % (k+1, U1[k], U2[k])
 			
 		if verbose: print '____________________________________________________'			
-		from src.pareto import get_pareto
 		
 		if False:
 			pf_ = 'pareto_%d-%d-%s' % (N, M, pType)

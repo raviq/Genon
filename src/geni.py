@@ -5,6 +5,7 @@ import time
 import random
 import matplotlib.pyplot as plt
 from interval import interval
+import numpy as np
 
 # Intervals complementary/sampling
 
@@ -35,11 +36,11 @@ def sample_interval_from_interval(i):
 
 		return random_component
 
-	if len(ci_l)==1 and random_component[0][0] == random_component[0][1]:
+	if len(ci_l) == 1 and random_component[0][0] == random_component[0][1]:
 		return random_component
 
 	while random_component[0][0] == random_component[0][1]:
-		#print random_component
+		# print random_component
 		random_component = ci_l[random.randint(0, len(ci_l)-1 )]
 
 	a = sample_from_one_interval(random_component)
@@ -47,11 +48,6 @@ def sample_interval_from_interval(i):
 	while b <= a:
 		a = sample_from_one_interval(random_component)
 		b = sample_from_one_interval(random_component)
-		#print a,b, '\t\t', random_component
-
-
-	#print '\t\t >', a, ' \t ',b
-
 
 	return interval[a, b]
 
@@ -63,9 +59,6 @@ def random_interval():
 		b = random.randint(0,9)
 	return interval[a, b]
 
-
-#====================================================================================================
-import numpy as np
 def poisseq(n, lambd):
     tmpdegs = np.zeros(n)
     while np.any(tmpdegs == 0):
@@ -75,11 +68,12 @@ def poisseq(n, lambd):
 
 def geta(i): return i[0][0]
 def getb(i): return i[0][1]
+
 def leni(i):
 	if i == interval():  	return 0
 	if i[0][1] == i[0][0]:	return 1
 	return i[0][1]-i[0][0]+1
-#__________________________________________________________________________________________
+
 def plot_intervals(src_interval, dest_interval, d):
 	fig = plt.figure(1, figsize=(8, 8))
 	ia = geta(src_interval)
@@ -137,13 +131,12 @@ def plot_intervals(src_interval, dest_interval, d):
 	fig.savefig(fname)
 	plt.close()
 
-#__________________________________________________________________________________________
-'''
-	competitiveness and overlap
-	0 : no overlap (zero-sum)
-		... Jaccard index
-	1 : complete overlap same, or contained
-'''
+# ------------------------------------------------------------------------
+# competitiveness and overlap
+# 0 : no overlap (zero-sum)
+#    ... Jaccard index
+# 1 : complete overlap same, or contained
+# ------------------------------------------------------------------------
 
 def overlap(interv_src, delta = 'zerosum'):
 	if delta == 'zerosum':
@@ -161,15 +154,10 @@ def overlap(interv_src, delta = 'zerosum'):
 		print ('arg error')
 		exit()
 
-#__________________________________________________________________________________________
-
-'''
-Final function to generate interval from src_interval given a mode.
-	mode :	within
-		zerosum
-		random
-'''
-
+# ------------------------------------------------------------------------
+# Final function to generate interval from src_interval given a mode.
+# mode : within, zerosum and random
+# ------------------------------------------------------------------------
 
 def generate_interval( src_interval, mode='within' ):
 	if mode ==  'zerosum':
@@ -179,10 +167,9 @@ def generate_interval( src_interval, mode='within' ):
 
 	return overlap(src_interval, delta = mode)
 
-#__________________________________________________________________________________________
-
 # Demo
-def example_of_J_plot():
+
+def example_of_j_plot():
 	ch = ['within', 'zerosum', 'random']
 	d = ch[random.randint(0, 2)]
 	src_interval = random_interval()
@@ -192,12 +179,8 @@ def example_of_J_plot():
 
 	exit()
 
-#__________________________________________________________________________________________
-
-
 if __name__ == '__main__':
-
-	example_of_J_plot()
+	example_of_j_plot()
 
 
 # End
