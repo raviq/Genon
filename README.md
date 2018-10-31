@@ -1,7 +1,6 @@
 
 <a  name="_"></a>
-# Genon [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![HitCount](http://hits.dwyl.io/raviq/Genon.svg)](http://hits.dwyl.io/raviq/Genon)
-
+# Genon [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) 
 
 1. [ Description ](#desc)  
 2. [ Prerequisites](#prereq)  
