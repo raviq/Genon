@@ -57,7 +57,7 @@ Theoretical details are found in [citation](#Citation).
 
 <a  name="prereq"></a>
 ## Prerequisites
-- Python2.7
+- Python3.6
 - [pyinterval](https://pyinterval.readthedocs.io/en/latest/)
 
   <a  name="oneprof"></a>
@@ -66,7 +66,7 @@ Theoretical details are found in [citation](#Citation).
   <a  name="usage1"></a>
 ### Usage
 
-	python2.7  src/genon.py 
+	python     src/genon.py 
 		   NumberofIssues (n)
 		   NumberofConstraints (m)
 		   ConstraintIssueDistribution (pi) in [complete | random | pl] 
@@ -83,7 +83,7 @@ Theoretical details are found in [citation](#Citation).
 ### Example
 
 ```
-python2.7 src/genon.py 2 5 pl random random 100 2 5 100 sample sample/
+python src/genon.py 2 5 pl random random 100 2 5 100 sample sample/
 ```
 
 The output is stored in `sample/` and contains:
@@ -114,7 +114,7 @@ Each constraint from agent *1*'s utility space is used to generate a new constra
   <a  name="usage2"></a>
 ### Usage
 
-	python2.7  src/genon2.py 
+	python     src/genon2.py 
 		   NumberofIssues 
 		   NumberofConstraints 
 		   ConstraintIssueDistribution (Pi) in [complete | random | pl] 
@@ -128,7 +128,7 @@ Each constraint from agent *1*'s utility space is used to generate a new constra
   <a  name="Example2"></a>
 ### Example
 ```
-python2.7 src/genon2.py 2 5 random random random 100 2 5 100
+python src/genon2.py 2 5 random random random 100 2 5 100
 ```
 
 The output will be stored in `scenarios/2-5-random-random-random/` and contains:
