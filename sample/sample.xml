@@ -3,23 +3,23 @@
   <objective description="" etype="objective" index="0" name="root" type="objective">
        <issue etype="integer" index="1"  name="i2" type="integer" vtype="integer" lowerbound="0" upperbound="9"/>
        <issue etype="integer" index="2"  name="i1" type="integer" vtype="integer" lowerbound="0" upperbound="9"/>
-    <utility maxutility="311">
+    <utility maxutility="329">
      <ufun type="PlainUfun" weight="1" aggregation="sum">
-	  <hyperRectangle utility="91">
-	      <INCLUDES index="2"  min="2"  max="3"/>
-	      <INCLUDES index="1"  min="7"  max="8"/>
-	  </hyperRectangle>
-	  <hyperRectangle utility="45">
-	      <EXCLUDES index="1"  min="2"  max="9"/>
+	  <hyperRectangle utility="72">
+	      <EXCLUDES index="1"  min="3"  max="6"/>
+	      <EXCLUDES index="2"  min="2"  max="2"/>
 	  </hyperRectangle>
 	  <hyperRectangle utility="31">
-	      <EXCLUDES index="1"  min="2"  max="4"/>
+	      <INCLUDES index="2"  min="0"  max="4"/>
 	  </hyperRectangle>
-	  <hyperRectangle utility="65">
-	      <EXCLUDES index="2"  min="3"  max="6"/>
+	  <hyperRectangle utility="97">
+	      <EXCLUDES index="2"  min="0"  max="3"/>
 	  </hyperRectangle>
-	  <hyperRectangle utility="79">
-	      <INCLUDES index="1"  min="3"  max="4"/>
+	  <hyperRectangle utility="40">
+	      <EXCLUDES index="2"  min="0"  max="8"/>
+	  </hyperRectangle>
+	  <hyperRectangle utility="89">
+	      <INCLUDES index="2"  min="7"  max="8"/>
 	  </hyperRectangle>
      </ufun>
     </utility>
